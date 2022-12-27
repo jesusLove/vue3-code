@@ -18,6 +18,7 @@ export class RefImpl {
   }
   get value() {
     // 依赖收集
+    trackRefValue(this)
     return this._value
   }
   set value(newValue) {
@@ -27,6 +28,7 @@ export class RefImpl {
       this._rawValue = newValue
 
       // 触发依赖
+      triggerRefValue(this)
     }
   }
 }
